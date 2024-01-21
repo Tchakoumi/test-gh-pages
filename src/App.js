@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Mycars from './components/Mycars';
+import Mycars from './components/MyCars';
 import Welcome from "./components/Welcome";
 import './App.css';
 
