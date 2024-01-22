@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Car from "./Cars";
 
-export default function Mycars() {
+export default function MyCars() {
   const [state, setState] = useState({
     voitures: [
       { name: "Ford", color: "red", year: 2000 },
@@ -29,13 +29,6 @@ export default function Mycars() {
     setState({ valeurInput: e.target.value });
     console.log(state.valeurInput);
   };
-  const DeleteCar = () => {
-    console.log(state.newtable);
-    const newtable = state.voitures.slice(1);
-    setState({
-      voitures: newtable,
-    });
-  };
   const DeleteSpecificCar = () => {
     const newTable = state.voitures.splice(state.valeurInput, 1);
     console.log(newTable);
@@ -45,7 +38,6 @@ export default function Mycars() {
   };
 
   const handleChangeForm = (e) => {
-    // Mettez à jour l'état avec les valeurs des champs de formulaire
     setState({ [e.target.name]: e.target.value });
   };
 
@@ -56,7 +48,6 @@ export default function Mycars() {
       name: state.name,
       color: state.color,
       year: state.year,
-      // year: new Date().getFullYear(), // Supposons que l'année est l'année actuelle
     };
 
     setState((prevState) => ({
@@ -65,11 +56,6 @@ export default function Mycars() {
       age: "",
       color: "",
     }));
-
-    // Affichez les valeurs des champs dans la console (remplacez par votre logique d'enregistrement)
-    // console.log('name:', state.name);
-    // console.log('year:', state.year);
-    // console.log('color:', state.color);
   };
 
   const year = new Date().getFullYear();
@@ -130,9 +116,6 @@ export default function Mycars() {
           </div>
         );
       })}
-      {/* <Car color={state.voitures[0].color} year={year - state.voitures[0].year +'ans'} >{state.voitures[0].name}</Car>
-                <Car color={state.voitures[1].color} year={year - state.voitures[1].year +'ans'}>{state.voitures[1].name}</Car>
-                <Car color={state.voitures[2].color} year={year - state.voitures[2].year +'ans'}>{state.voitures[2].name}</Car> */}
     </div>
   );
 }
